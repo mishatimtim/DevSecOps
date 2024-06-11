@@ -253,6 +253,19 @@
                   "new": false,
                   "number": 2,
                   "score": "9,8"
+                },
+                {
+                  "id": "de4d09ce-7e61-40aa-ad5f-5574bfe1b2bf",
+                  "title": "Угроза: XSS (межсайтовый скриптинг)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Злоумышленник может вставить вредоносный скрипт, который выполнится при просмотре администратором страницы с Logs, StdOut\nD:10/R:10/E:10/A:10/D:10",
+                  "mitigation": "Настроить корректную обработку пользовательского ввода\nОтображать на странице данные с предварительной очисткой.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "10"
                 }
               ]
             },
@@ -366,6 +379,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Cyber-ED",
-    "threatTop": 2
+    "threatTop": 3
   }
 }
