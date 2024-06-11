@@ -16,12 +16,163 @@
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.2.0",
-        "cells": [],
+        "cells": [
+          {
+            "position": {
+              "x": 649.9999999999986,
+              "y": 30.00000000000182
+            },
+            "size": {
+              "width": 540,
+              "height": 570
+            },
+            "shape": "trust-boundary-box",
+            "attrs": {
+              "headerText": {
+                "text": "Web-Server"
+              }
+            },
+            "id": "99b8949c-5600-4e53-813b-0a4e45a2b9c0",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Web-Server",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 422.5,
+              "y": 120
+            },
+            "size": {
+              "width": 150,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "User"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "65f2abdb-f6d9-4d68-a82b-daac1950f823",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.Actor",
+              "name": "User",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 844.9999999999986,
+              "y": 80.00000000000017
+            },
+            "size": {
+              "width": 150,
+              "height": 140
+            },
+            "attrs": {
+              "text": {
+                "text": "Аутентификация"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "1e751520-bfaf-46c3-9df6-a9518aadfc30",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "Аутентификация",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "4a696fd9-79c5-4084-9240-d7417b007da2",
+                  "title": "Несанкционированный доступ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Злоумышленник может получить доступ к конфиденциальным данным, т.к. аутентификация отсутствует\nD:10/R:10/E:10/A:10/D:10",
+                  "mitigation": "Внедрить аутентификацию",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "10"
+                }
+              ]
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "9507a91c-a0a6-4898-abee-4b5b25f70a10",
+            "source": {
+              "x": 573,
+              "y": 160
+            },
+            "target": {
+              "cell": "1e751520-bfaf-46c3-9df6-a9518aadfc30"
+            }
+          }
+        ],
         "description": "STRIDE diagram"
       }
     ],
     "diagramTop": 1,
     "reviewer": "Cyber-ED",
-    "threatTop": 0
+    "threatTop": 1
   }
 }
