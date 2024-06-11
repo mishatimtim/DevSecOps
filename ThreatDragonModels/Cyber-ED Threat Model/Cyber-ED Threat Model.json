@@ -208,6 +208,46 @@
             }
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "331edce5-1695-4c98-a1a6-075f5af86534",
+            "source": {
+              "x": 584,
+              "y": 160
+            },
+            "target": {
+              "cell": "488c08ca-2139-402d-a152-61e12c92f1d2"
+            }
+          },
+          {
             "position": {
               "x": 844.9999999999986,
               "y": 245.00000000000182
@@ -218,7 +258,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Task Manager"
+                "text": "Job Manager"
               },
               "body": {
                 "stroke": "red",
@@ -231,7 +271,7 @@
             "id": "29f6f387-ced0-4e4c-80fd-193b92c9455e",
             "data": {
               "type": "tm.Process",
-              "name": "Task Manager",
+              "name": "Job Manager",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -282,7 +322,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Job Manager"
+                "text": "Task Manager"
               },
               "body": {
                 "stroke": "red",
@@ -295,7 +335,7 @@
             "id": "488c08ca-2139-402d-a152-61e12c92f1d2",
             "data": {
               "type": "tm.Process",
-              "name": "Job Manager",
+              "name": "Task Manager",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -306,16 +346,16 @@
               "privilegeLevel": "",
               "threats": [
                 {
-                  "id": "4a696fd9-79c5-4084-9240-d7417b007da2",
-                  "title": "Несанкционированный доступ",
+                  "id": "a4b8f107-5cf1-4282-9c41-93eb5a04ccee",
+                  "title": "Раскрытие чувствительной информации",
                   "status": "Open",
-                  "severity": "Medium",
-                  "type": "Spoofing",
-                  "description": "Злоумышленник может получить доступ к конфиденциальным данным, т.к. аутентификация отсутствует\nD:10/R:10/E:10/A:10/D:10",
-                  "mitigation": "Внедрить аутентификацию",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Раскрытие чувствительной информации PATH ID (Пример: localhost:36665-c35297\npekko.tcp://flink@localhost:36665/user/rpc/taskmanager_0)\nЗлоумышленник может использовать данную информацию для атак типа: SQL инъекция.\nD:10/R:10/E:10/A:10/D:10",
+                  "mitigation": "Необходимо:\n1) Разработать ролевую модель\n2) Ограничить использование данного функционала только для роли Администратора системы.",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 1,
+                  "number": 4,
                   "score": "10"
                 }
               ]
@@ -379,6 +419,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Cyber-ED",
-    "threatTop": 3
+    "threatTop": 4
   }
 }
