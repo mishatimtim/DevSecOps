@@ -248,6 +248,52 @@
             }
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "6f667ff9-d3e8-4903-9b6e-e713e63f6a85",
+            "source": {
+              "x": 573,
+              "y": 160
+            },
+            "target": {
+              "cell": "373bb36a-69b9-4ebe-83e4-1a31201e3acf"
+            },
+            "vertices": [
+              {
+                "x": 640,
+                "y": 240
+              }
+            ]
+          },
+          {
             "position": {
               "x": 844.9999999999986,
               "y": 245.00000000000182
@@ -397,16 +443,42 @@
               "privilegeLevel": "",
               "threats": [
                 {
-                  "id": "4a696fd9-79c5-4084-9240-d7417b007da2",
-                  "title": "Несанкционированный доступ",
+                  "id": "7ed3d517-384d-4019-878c-83155618ceb7",
+                  "title": "Изменение данных",
                   "status": "Open",
-                  "severity": "Medium",
-                  "type": "Spoofing",
-                  "description": "Злоумышленник может получить доступ к конфиденциальным данным, т.к. аутентификация отсутствует\nD:10/R:10/E:10/A:10/D:10",
-                  "mitigation": "Внедрить аутентификацию",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "В данном модуле любой пользователь может удалять загруженные файлы.\nD:10/R:10/E:10/A:10/D:10",
+                  "mitigation": "Необходимо:\n1) Разработать ролевую модель\n2) Ограничить использование данного функционала только для роли Администратора системы, либо собственных файлов.",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 1,
+                  "number": 5,
+                  "score": "10"
+                },
+                {
+                  "id": "7d6c07e6-8f31-4c70-a62c-6aca8dfde15e",
+                  "title": "Раскрытие чувствительной информации",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "При загрузке неверного формата файлов выводится Server Response\nD:10/R:10/E:10/A:7/D:9",
+                  "mitigation": "Скрыть вывод ошибок",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "9,2"
+                },
+                {
+                  "id": "d6afdfce-3b8f-4c20-8e15-83efa81519f0",
+                  "title": "XSS (межсайтовый скриптинг)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Злоумышленник может загрузить вредоносный jar, который выполнится в Job Manager.\nD:10/R:10/E:10/A:10/D:10\n",
+                  "mitigation": "Валидировать загружаемые скрипты в коде, если замечена попытка XSS, то экранировать данный участок кода.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
                   "score": "10"
                 }
               ]
@@ -419,6 +491,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Cyber-ED",
-    "threatTop": 4
+    "threatTop": 7
   }
 }
