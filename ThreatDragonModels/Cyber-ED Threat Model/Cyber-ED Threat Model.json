@@ -19,12 +19,12 @@
         "cells": [
           {
             "position": {
-              "x": 649.9999999999986,
-              "y": 30.00000000000182
+              "x": 649.9999999999981,
+              "y": 30.000000000002274
             },
             "size": {
               "width": 540,
-              "height": 570
+              "height": 720
             },
             "shape": "trust-boundary-box",
             "attrs": {
@@ -115,9 +115,9 @@
                   "id": "4a696fd9-79c5-4084-9240-d7417b007da2",
                   "title": "Несанкционированный доступ",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "High",
                   "type": "Spoofing",
-                  "description": "Злоумышленник может получить доступ к конфиденциальным данным, т.к. аутентификация отсутствует\nD:10/R:10/E:10/A:10/D:10",
+                  "description": "В системе отсутствует аутентификация. Злоумышленник может получить доступ к конфиденциальным данным.\nD:10/R:10/E:10/A:10/D:10",
                   "mitigation": "Внедрить аутентификацию",
                   "modelType": "STRIDE",
                   "new": false,
@@ -168,6 +168,46 @@
             }
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "e96d931c-9601-4956-b7fd-857a36d85aa4",
+            "source": {
+              "x": 573,
+              "y": 160
+            },
+            "target": {
+              "cell": "29f6f387-ced0-4e4c-80fd-193b92c9455e"
+            }
+          },
+          {
             "position": {
               "x": 844.9999999999986,
               "y": 245.00000000000182
@@ -202,6 +242,57 @@
               "privilegeLevel": "",
               "threats": [
                 {
+                  "id": "50980a36-03c4-40c0-bf78-dc93fbb894ec",
+                  "title": "Раскрытие чувствительной информации",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Модуль управления задачами раскрывает дополнительную информацию о сервере: \n- Metrics\n- Logs\n- Thread Dump\n- Ресурсах сервера: CPU, Task Heap memory, Task Off-Heap memory, Managed memory, Network memory.\nD:9/R:10/E:10/A:10/D:10\n",
+                  "mitigation": "Необходимо:\n1) Разработать ролевую модель\n2) Ограничить использование данного функционала только для роли Администратора системы.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": "9,8"
+                }
+              ]
+            },
+            "zIndex": 11
+          },
+          {
+            "position": {
+              "x": 844.9999999999981,
+              "y": 407.0000000000018
+            },
+            "size": {
+              "width": 150,
+              "height": 140
+            },
+            "attrs": {
+              "text": {
+                "text": "Job Manager"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "488c08ca-2139-402d-a152-61e12c92f1d2",
+            "data": {
+              "type": "tm.Process",
+              "name": "Job Manager",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
                   "id": "4a696fd9-79c5-4084-9240-d7417b007da2",
                   "title": "Несанкционированный доступ",
                   "status": "Open",
@@ -216,7 +307,58 @@
                 }
               ]
             },
-            "zIndex": 11
+            "zIndex": 12
+          },
+          {
+            "position": {
+              "x": 844.9999999999981,
+              "y": 580
+            },
+            "size": {
+              "width": 150,
+              "height": 140
+            },
+            "attrs": {
+              "text": {
+                "text": "Submit New Job"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "373bb36a-69b9-4ebe-83e4-1a31201e3acf",
+            "data": {
+              "type": "tm.Process",
+              "name": "Submit New Job",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "4a696fd9-79c5-4084-9240-d7417b007da2",
+                  "title": "Несанкционированный доступ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Злоумышленник может получить доступ к конфиденциальным данным, т.к. аутентификация отсутствует\nD:10/R:10/E:10/A:10/D:10",
+                  "mitigation": "Внедрить аутентификацию",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "10"
+                }
+              ]
+            },
+            "zIndex": 13
           }
         ],
         "description": "STRIDE diagram"
@@ -224,6 +366,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Cyber-ED",
-    "threatTop": 1
+    "threatTop": 2
   }
 }
