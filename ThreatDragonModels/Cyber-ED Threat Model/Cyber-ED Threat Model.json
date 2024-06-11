@@ -166,6 +166,57 @@
             "target": {
               "cell": "1e751520-bfaf-46c3-9df6-a9518aadfc30"
             }
+          },
+          {
+            "position": {
+              "x": 844.9999999999986,
+              "y": 245.00000000000182
+            },
+            "size": {
+              "width": 150,
+              "height": 140
+            },
+            "attrs": {
+              "text": {
+                "text": "Task Manager"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "29f6f387-ced0-4e4c-80fd-193b92c9455e",
+            "data": {
+              "type": "tm.Process",
+              "name": "Task Manager",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "4a696fd9-79c5-4084-9240-d7417b007da2",
+                  "title": "Несанкционированный доступ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Злоумышленник может получить доступ к конфиденциальным данным, т.к. аутентификация отсутствует\nD:10/R:10/E:10/A:10/D:10",
+                  "mitigation": "Внедрить аутентификацию",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "10"
+                }
+              ]
+            },
+            "zIndex": 11
           }
         ],
         "description": "STRIDE diagram"
